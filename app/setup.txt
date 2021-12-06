@@ -1,0 +1,30 @@
+venv for terminal:
+venv\Scripts\activate.bat
+also: Interpreter (bottom left) as (venv)
+
+start server (in web browser):
+in terminal type uvicorn app.main:app --reload
+-> starts FastAPI <app> in file main.py
+different path by changing "/" to "/<path>"
+
+path operations -template:
+@app.get("/")                                                   #decorator; http operation "get" for retrieving data
+async def root():                                               #function
+    return {"message": "Hello there! <dies instantly>"}
+
+- order for paths matters
+
+tools to test api: postman
+
+schema for data: use pydantic
+
+CRUD Applications:
+- Create, Read, Update, Delete
+- Conventions:
+    -> were working with posts ie all urls "/post/<...>
+    -> Create - POST Request - /posts - @app.post("/posts")
+    -> Read - GET Request - /posts/:id - @app.post("/posts/:{id}")
+    -> Read - GET Request - /posts - @app.get("/posts")
+    -> Update - PUT/PATCH Request - /posts/:id - @app.put("/posts/:{id}") #put: change entire thing, patch: change specific field; doesn't really matter
+    -> Delete - DELETE Request - /posts/:id - @app.delete("/posts/:{id}")
+
